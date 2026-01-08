@@ -1,0 +1,32 @@
+warehouses:
+  ingestion:
+    auto_suspend: 60
+    max_cluster_count: 10
+    roles:
+      ingestion: 
+        - usage
+        - operate      
+  developer:
+    size: "small"
+    auto_suspend: 60
+    max_cluster_count: 10
+    roles:
+      developer:
+        - usage
+        - operate
+  # transform:
+  #   size: "small" 
+  #   auto_suspend: 60
+  #   max_cluster_count: 10
+  #   roles:
+  #     transform:
+  #       - usage
+  #       - operate
+  # reporting:
+  #   size: "small"  
+  #   auto_suspend: 60
+  #   max_cluster_count: 10
+  #   roles:
+  #     analyst: 
+  #       - usage
+  #       - operate
