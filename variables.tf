@@ -79,3 +79,9 @@ variable "always_apply" {
   description = "Toggle to always apply on all objects. Used for when there are changes to the grants that need to be retroactively granted to roles"
   default     = false
 }
+
+variable "create_parent_roles" {
+  type        = bool
+  description = "Whether or not you want to create the parent roles (for production deployment only)"
+  default     = false
+}
