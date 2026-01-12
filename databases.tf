@@ -76,10 +76,4 @@ resource "snowflake_grant_ownership" "database" {
     object_type = "DATABASE"
     object_name = snowflake_database.database[each.value.database].id
   }
-
-  lifecycle {
-    replace_triggered_by = [
-      var.always_apply
-    ]
-  }
 }
