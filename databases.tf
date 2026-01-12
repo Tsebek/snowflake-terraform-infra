@@ -30,12 +30,6 @@ locals {
   ]
 }
 
-# Simple resource creation example
-resource "snowflake_database" "tf_db" {
-  name         = "TF_DEMO_DB"
-  is_transient = false
-}
-
 # Creates actual Snowflake databases
 resource "snowflake_database" "database" {
   for_each   = local.databases
