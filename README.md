@@ -27,8 +27,7 @@ AWS Access Key ID for S3 backend access.
 1. Go to **AWS Console** → **IAM** → **Users**
 2. Select your user or create new user for Terraform
 3. **Security credentials** → **Access keys** → **Create access key**
-4. Use case: **CLI**
-5. Copy the **Access Key ID**
+4. Copy the **Access Key ID**
 
 **Required IAM permissions:**
 
