@@ -24,10 +24,14 @@ Before you begin, ensure you have:
 AWS Access Key ID for S3 backend access.
 
 **How to get:**
-1. Go to **AWS Console** → **IAM** → **Users**
-2. Select your user or create new user for Terraform
-3. **Security credentials** → **Access keys** → **Create access key**
-4. Copy the **Access Key ID**
+1. Go to **AWS Console** → **S3** → **Create bucket**
+2. Go to **AWS Console** → **IAM** → **Policies** → **Create policy**
+3. Switch to JSON format and add permissions below (adjust S3 bucket name)
+4. Go to **AWS Console** → **IAM** → **Users** → **Create user**
+5. Select "Attach policies directly" and choose the newly added policy
+6. Select this new user and click on **Create access key**
+7. Choose "Application running outside AWS" in the next step
+8. Copy the **Access Key ID** and **Secret access key**
 
 **Required IAM permissions:**
 
@@ -51,21 +55,6 @@ AWS Access Key ID for S3 backend access.
   ]
 }
 ```
-
-**Example value:** `AKIAIOSFODNN7EXAMPLE`
-
----
-
-#### 🔐 **AWS_SECRET_ACCESS_KEY**
-
-AWS Secret Access Key for S3 backend access.
-
-**How to get:**
-- Obtained at the same time as `AWS_ACCESS_KEY_ID`
-- ⚠️ Only shown **once** during creation
-- If lost, must create new access key
-
-**Example value:** `wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`
 
 ---
 
@@ -96,20 +85,8 @@ Create Terraform user in Snowflake with necessary permissions:
 CREATE USER IF NOT EXISTS TERRAFORM_USER;
 
 -- Grant system roles
-GRANT ROLE ACCOUNTADMIN TO USER TERRAFORM_USER;
 GRANT ROLE SECURITYADMIN TO USER TERRAFORM_USER;
 GRANT ROLE SYSADMIN TO USER TERRAFORM_USER;
-
--- Create custom infrastructure role
-CREATE ROLE IF NOT EXISTS INFRA_ROLE;
-GRANT CREATE ROLE ON ACCOUNT TO ROLE INFRA_ROLE;
-GRANT MANAGE GRANTS ON ACCOUNT TO ROLE INFRA_ROLE;
-GRANT CREATE WAREHOUSE ON ACCOUNT TO ROLE INFRA_ROLE;
-GRANT MANAGE WAREHOUSES ON ACCOUNT TO ROLE INFRA_ROLE;
-
--- Assign custom role to user
-CREATE USER IF NOT EXISTS TERRAFORM_USER DEFAULT_ROLE = INFRA_ROLE;
-GRANT ROLE INFRA_ROLE TO USER TERRAFORM_USER;
 
 -- Attach public key to user
 ALTER USER TERRAFORM_USER
