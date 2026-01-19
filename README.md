@@ -229,14 +229,23 @@ Create two environments:
 - 🟢 **dev** - Development (no approvers)
 - 🔴 **prod** - Production (recommended: add required reviewers)
 
-#### 4. **Test Your Workflow**
+#### 4. **Add new resources**
+
+```
+1. In your local repo, create a new feature branch
+2. Add new resources - databases, roles, warehouses
+3. Commit and push these changes to the remote repo
+4. Create a Pull request
+```
+
+#### 5. **Run Your Workflow**
 
 ```
 1. Go to Actions tab
 2. Select "Plan Snowflake Infra"
 3. Click "Run workflow"
 4. Configure:
-   - Branch: main
+   - Branch: <your-feature-branch>
    - Environment: dev
    - Always Apply Grants: false
    - Log Debug: OFF
