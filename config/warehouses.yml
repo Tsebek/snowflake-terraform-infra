@@ -1,11 +1,11 @@
 warehouses:
-  # ingestion:
-  #   auto_suspend: 60
-  #   max_cluster_count: 10
-  #   roles:
-  #     ingestion: 
-  #       - usage
-  #       - operate      
+  ingestion:
+    auto_suspend: 60
+    max_cluster_count: 10
+    roles:
+      ingestion: 
+        - usage
+        - operate      
   # developer:
   #   size: "small"
   #   auto_suspend: 60
