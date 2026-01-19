@@ -1,21 +1,21 @@
 functional_roles:
-  analyst:
-    - gold_r
-  developer:
-    - raw_r
-    - bronze_rw
-    - silver_rw
-    - gold_rw
-  ingestion:
-    - raw_rw
-  transform:
-    - developer
-  sysadmin:
-    - analyst
-    - ingestion
-    - developer
-    - transform
+  # analyst:
+  #   - gold_r
+  # developer:
+  #   - raw_r
+  #   - bronze_rw
+  #   - silver_rw
+  #   - gold_rw
+  # ingestion:
+  #   - raw_rw
+  # transform:
+  #   - developer
+  # sysadmin:
+    # - analyst
+    # - ingestion
+    # - developer
+    # - transform
 
 account_roles:
-  sysadmin:
-    - sysadmin
+  # sysadmin:
+  #   - sysadmin

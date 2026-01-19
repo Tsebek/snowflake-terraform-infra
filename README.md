@@ -148,7 +148,6 @@ encrypt = "true"
 Update `environments/dev.tfvars` with your Snowflake connection details:
 
 ```hcl
-project           = "tb"
 environment       = "dev"
 region            = "us-east-1"
 snowflake_role    = "SYSADMIN"
