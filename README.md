@@ -91,6 +91,12 @@ GRANT ROLE SYSADMIN TO USER TERRAFORM_USER;
 -- Attach public key to user
 ALTER USER TERRAFORM_USER
 SET RSA_PUBLIC_KEY = '<contents of snowflake_tf_key.pub>';
+
+-- Create Warehouse
+CREATE WAREHOUSE DEMO_COMPUTE;
+
+GRANT USAGE, OPERATE ON WAREHOUSE DEMO_COMPUTE TO ROLE SECURITYADMIN;
+GRANT USAGE, OPERATE ON WAREHOUSE DEMO_COMPUTE TO ROLE SYSADMIN;
 ```
 
 > 💡 **Tip:** Copy the entire content of `snowflake_tf_key.pub` (excluding BEGIN/END lines)
@@ -144,6 +150,19 @@ encrypt = "true"
 ```
 
 #### 2. **Configure Environment Variables**
+
+Update `providers.tf` with your Snowflake Warehouse:
+
+```
+provider "snowflake" {
+  role              = var.snowflake_role
+  account_name      = var.snowflake_account
+  organization_name = var.snowflake_org
+  user              = var.snowflake_user
+  authenticator     = "SNOWFLAKE_JWT"
+  warehouse         = "DEMO_COMPUTE" # ← Warehouse created with Terraform user 
+}
+```
 
 Update `environments/dev.tfvars` with your Snowflake connection details:
 
