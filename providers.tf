@@ -18,7 +18,7 @@ provider "snowflake" {
   organization_name = var.snowflake_org
   user              = var.snowflake_user
   authenticator     = "SNOWFLAKE_JWT"
-  warehouse         = "COMPUTE_WH"
+  warehouse         = "DEMO_COMPUTE"
 }
 
 provider "snowflake" {
@@ -28,7 +28,7 @@ provider "snowflake" {
   organization_name = var.snowflake_org
   user              = var.snowflake_user
   authenticator     = "SNOWFLAKE_JWT"
-  warehouse         = "COMPUTE_WH"
+  warehouse         = "DEMO_COMPUTE"
 }
 
 provider "aws" {
