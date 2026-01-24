@@ -10,9 +10,9 @@ functional_roles:
     - raw_rw
   # transform:
   #   - developer
-  # sysadmin:
+  sysadmin:
     # - analyst
-    # - ingestion
+    - ingestion
     # - developer
     # - transform
 
