@@ -1,8 +1,8 @@
 databases:
-  raw: 
-    roles:
-      - r
-      - rw
+  # raw: 
+  #   roles:
+  #     - r
+  #     - rw
   # bronze:
   #   roles:
   #     - r
