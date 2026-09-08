@@ -22,3 +22,5 @@ terraform.rc
 
 # Lock file (optional - uncomment if you want to ignore it)
 # .terraform.lock.hcl
+
+.vscode/
